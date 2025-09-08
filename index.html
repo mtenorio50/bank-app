@@ -1,28 +1,49 @@
 <!DOCTYPE html>
-<html lang="'en">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank App</title>
-    <script src = "app.js"> </script>
+    <script src="app.js" defer> </script>
 </head>
 
 <body>
     <div id="app">Loading...</div>
     <!-- LOGIN TEMPLATE -->
     <template id="login">
+        <title>Login</title>
         <h1>Bank App</h1>
         <section>
-            <a href="/dashboard">Login</a>
+            <h2>Login</h2>
+            <form id='loginForm'>
+                <label for="username">Username</label>
+                <input id="username" name="user" type="text">
+                <button>Login</button>
+            </form>
+            <h2>Register</h2>
+            <form id="registerForm" action="//localhost:5000/api/accounts" method="POST">
+                <label for="username">Username</label>
+                <input id="user" name="user" type="text">
+                <label for="currency">Currency</label>
+                <input id="currency" name="currency" type="text" value="$">
+                <label for="description">Description</label>
+                <input id="description" name="description" type="text">
+                <label for="balance"> Current Balance</label>
+                <input id="balance" name="balance" type="number" value="0.00">
+                <button>Register</button>
+            </form>
+            <a href="/dashboard" onclick="onLinkClick(event)">Login</a>
         </section>
     </template>
 
     <!-- DASHBOARD-->
     <template id="dashboard">
+        <title>Dashboard</title>
         <header>
+
             <h1>Bank App</h1>
-            <a href="/login">Logout</a>
+            <a href="/login" onclick="onLinkClick(event)">Logout</a>
+            <a href="/credits" onclick="onLinkClick(event)">Credits</a>
         </header>
         <section> Balance: 100$ </section>
         <section>
@@ -39,6 +60,17 @@
             </table>
         </section>
     </template>
+
+    <template id="credits">
+        <title>Credits</title>
+        <h1>Credits</h1>
+        <section>
+            <a href="/dashboard" onclick="onLinkClick(event)">Dashboard</a>
+            <a href="/credits" onclick="onLinkClick(event)">Credits</a>
+            <a href="/login" onclick="onLinkClick(event)">Logout</a>
+        </section>
+    </template>
+
 </body>
 
 </html>
