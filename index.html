@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
     <script src="app.js" defer> </script>
 </head>
 
@@ -12,27 +13,35 @@
     <!-- LOGIN TEMPLATE -->
     <template id="login">
         <title>Login</title>
-        <h1>Bank App</h1>
+
         <section>
-            <h2>Login</h2>
-            <form id='loginForm'>
-                <label for="username">Username</label>
-                <input id="username" name="user" type="text">
-                <button>Login</button>
-            </form>
-            <h2>Register</h2>
-            <form id="registerForm" action="//localhost:5000/api/accounts" method="POST">
-                <label for="username">Username</label>
-                <input id="user" name="user" type="text">
-                <label for="currency">Currency</label>
-                <input id="currency" name="currency" type="text" value="$">
-                <label for="description">Description</label>
-                <input id="description" name="description" type="text">
-                <label for="balance"> Current Balance</label>
-                <input id="balance" name="balance" type="number" value="0.00">
-                <button>Register</button>
-            </form>
-            <a href="/dashboard" onclick="onLinkClick(event)">Login</a>
+            <div class="auth-card">
+                <div class="brand-title">Fun Code 🏦 Banking</div>
+
+                <h2>LOGIN</h2>
+                <form id='loginForm'>
+                    <label class="label" for="loginUsername">Username</label>
+                    <input class="input" id="loginUsername" name="user" type="text">
+                    <button class="btn">LOGIN</button>
+                </form>
+                <div class="divider">OR</div>
+                <h2>REGISTER</h2>
+                <form id="registerForm" action="javascript:register()">
+                    <label class="label" for="registerUsername">Username (required)</label>
+                    <input class="input" id="registerUsername" name="user" type="text" maxlength="20" required>
+                    <label class="label" for="email">Email (required)</label>
+                    <input class="input" id="email" name="email" type="email" required>
+                    <label class="label" for="currency">Currency</label>
+                    <input class="input" id="currency" name="currency" type="text" value="$" maxlength="5" required>
+                    <label class="label" for="description">Description</label>
+                    <input class="input" id="description" name="description" type="text" maxlength="100">
+                    <label class="label" for="balance"> Current Balance</label>
+                    <input class="input" id="balance" step="0.01" min="0" name="balance" type="number" value="0.00">
+                    <button class="btn" type="submit">REGISTER</button>
+                </form>
+
+
+            </div>
         </section>
     </template>
 
